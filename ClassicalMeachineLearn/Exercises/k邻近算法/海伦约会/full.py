@@ -93,6 +93,7 @@ def file2matrix(filename):
         index += 1
     return returnMat, classLabelVector
 
+'''
 """
 函数说明:可视化数据
 Parameters:
@@ -161,7 +162,7 @@ def showdatas(datingDataMat, datingLabels):
 	axs[1][0].legend(handles=[didntLike,smallDoses,largeDoses])
 	#显示图片
 	plt.show()
-
+'''
 
 """
 函数说明:对数据进行归一化

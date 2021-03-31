@@ -13,5 +13,34 @@
 * 确定前k个点所在类别的出现频率；
 * 返回前k个点所出现频率最高的类别作为当前点的预测分类
 
+## 特征数值的归一化
+&emsp;在处理这种不同取值范围的特征值时，我们通常采用的方法是将数值归一化，如将取值范围处理为０到１或者-１到１之间。
+>下面的公式可以将任意取值范围的特征值转化为０到１区间内的值：
+newValue = (oldValue-minValue)/(maxValue-minValue)
+
 ## k-NN算法简单实现
+~~~py
+    sqDiff = (inX - dataSet)**2
+    sqDistance = sqDiff.sum(axis=1)
+    distances = sqDistance ** 0.5
+    print("distance:/n", distances)
+	#返回distances中元素从小到大排序后的索引值
+    sortedDistIndices = distances.argsort()
+	#定一个记录类别次数的字典
+    classCount = {}
+    for i in range(k):
+		#取出前k个元素的类别
+	    voteIlabel = labels[sortedDistIndices[i]]
+	    #dict.get(key,default=None),字典的get()方法,返回指定键的值,如果值不在字典中返回默认值。
+		#计算类别次数
+	    classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1
+    sortedClassCount = sorted(classCount.items(),key=operator.itemgetter(1),reverse=True)
+    print("sortdClassCount:\n", sortedClassCount)
+~~~
+## k-NN sklearn模块实现
+
+#构建kNN分类器
+neigh = kNN(n_neighbors = 3, algorithm = 'auto')
+#拟合模型, trainingMat为测试矩阵,hwLabels为对应的标签
+neigh.fit(trainingMat, hwLabels)
 
