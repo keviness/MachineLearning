@@ -39,8 +39,26 @@ newValue = (oldValue-minValue)/(maxValue-minValue)
 ~~~
 ## k-NN sklearn模块实现
 
-#构建kNN分类器
+### 1，构建kNN分类器
+~~~py
+from sklearn.neighbors import KNeighborsClassifier as kNN
 neigh = kNN(n_neighbors = 3, algorithm = 'auto')
-#拟合模型, trainingMat为测试矩阵,hwLabels为对应的标签
+~~~
+#### 函数参数
+ * n_neighbors为k值
+ * n_neighbors: int, default=5
+ * weights: {‘uniform’, ‘distance’} or callable, default=’uniform’
+ * algorithm: {‘auto’, ‘ball_tree’, ‘kd_tree’, ‘brute’}, default=’auto’
+ * leaf_size: int, default=30
+ * p: int, default=2
+ * metric: str or callable, default=’minkowski’
+ * metric_params: dict, default=None 
+ * n_jobs: int, default=None
+### 2，拟合、训练模型, trainingMat为测试矩阵,hwLabels为对应的标签
+~~~py
 neigh.fit(trainingMat, hwLabels)
-
+~~~
+### 3，对测试数据集进行预测
+~~~py
+classifierResult = neigh.predict(vectorUnderTest)
+~~~
