@@ -48,11 +48,11 @@ def img2vector(filename):
 	#返回转换后的1x1024向量
 	return returnVect
 
-def handwritingClassTest():
+def handwritingClassTest(Path):
 	#测试集的Labels
 	hwLabels = []
 	#返回trainingDigits目录下的文件名
-	trainingFileList = listdir('trainingDigits')
+	trainingFileList = listdir(Path+'trainingDigits')
 	#返回文件夹下文件的个数
 	m = len(trainingFileList)
 	#初始化训练的Mat矩阵,测试集
@@ -66,9 +66,9 @@ def handwritingClassTest():
 		#将获得的类别添加到hwLabels中
 		hwLabels.append(classNumber)
 		#将每一个文件的1x1024数据存储到trainingMat矩阵中
-		trainingMat[i, :] = img2vector('trainingDigits/%s' % (fileNameStr))
+		trainingMat[i, :] = img2vector(Path+'trainingDigits/%s' % (fileNameStr))
 	#返回testDigits目录下的文件名
-	testFileList = listdir('testDigits')
+	testFileList = listdir( Path+'testDigits')
 	#错误检测计数
 	errorCount = 0.0
 	#测试数据的数量
@@ -80,13 +80,14 @@ def handwritingClassTest():
 		#获得分类的数字
 		classNumber = int(fileNameStr.split('_')[0])
 		#获得测试集的1x1024向量,用于训练
-		vectorUnderTest = img2vector('testDigits/%s' % (fileNameStr))
+		vectorUnderTest = img2vector(Path+'testDigits/%s' % (fileNameStr))
 		#获得预测结果
 		classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)
 		print("分类返回结果为%d\t真实结果为%d" % (classifierResult, classNumber))
 		if(classifierResult != classNumber):
 			errorCount += 1.0
-	print("总共错了%d个数据\n错误率为%f%%" % (errorCount, errorCount/mTest))
+	print("总共%d,错了%d个数据\n错误率为%f%%" % (mTest, errorCount, errorCount/mTest*100))
 
 if __name__ == '__main__':
-	handwritingClassTest()
+    Path = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/k邻近算法/数字识别/'
+    handwritingClassTest(Path)
