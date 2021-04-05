@@ -12,9 +12,9 @@ Some meachine learning records
 | Chapters | Descriptions | Notes Link |  Examples  |
 |:--------:|:------------:|:----------:|:----------:|
 |  第一章   |  绪论：机器学习定义、分类 |[绪论](./ClassicalMeachineLearn/Notes/绪论.md)|    --   |
-|  第二章   |  k-NN（k-邻近）       |  [k-NN](./ClassicalMeachineLearn/Notes/k-NN.md)  | [示例](./ClassicalMeachineLearn/Examples/k邻近算法)|
-|  第三章   |  支持向量机（SVM）       |    --     |     --     |
-|  第四章   |  决策树（Decision Tree）|      --    |     --    |
+|  第二章   |  k-NN（k-邻近）       |[k-NN](./ClassicalMeachineLearn/Notes/k-NN.md)  | [示例](./ClassicalMeachineLearn/Examples/k邻近算法)|
+|  第三章   |  支持向量机（SVM,Support Vector Meachine)|    --     |     --     |
+|  第四章   |  决策树（Decision Tree）|[Decision Tree](./ClassicalMeachineLearn/Notes/DecisionTree.md) |[示例](./ClassicalMeachineLearn/Examples/DecisionTree)|
 
 ### Exercises
 

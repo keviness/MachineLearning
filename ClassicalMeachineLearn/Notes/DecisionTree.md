@@ -21,7 +21,9 @@
 ![信息增益](./imgs/信息增益.png)
 * 熵与条件熵之差成为互信息(mutual information)。决策树学习中的信息增益等价于训练数据集中类与特征的互信息。
 
-## 计算经验熵
+
+## 实现原理
+### 计算经验熵
 ~~~py
 def calcShannonEnt(dataSet):
     numEntires = len(dataSet)                        #返回数据集的行数
@@ -38,7 +40,7 @@ def calcShannonEnt(dataSet):
     return shannonEnt                        #返回经验熵(香农熵)
 ~~~
 
-## 计算信息增益
+### 计算信息增益
 ~~~py
 def chooseBestFeatureToSplit(dataSet):
     numFeatures = len(dataSet[0]) - 1                    #特征数量
@@ -60,4 +62,14 @@ def chooseBestFeatureToSplit(dataSet):
             bestInfoGain = infoGain                             #更新信息增益，找到最大的信息增益
             bestFeature = i                                     #记录信息增益最大的特征的索引值
     return bestFeature                                             #返回信息增益最大的特征的索引值
+~~~
+
+## sklearn.tree实现决策树
+~~~py
+from sklearn import tree
+#使用数据，构建决策树
+clf = tree.DecisionTreeClassifier(max_depth = 4)					
+clf = clf.fit(lenses_pd.values.tolist(), lenses_target)	
+#对测试集进行分类
+clf.predict([[1,1,1,0]])
 ~~~
