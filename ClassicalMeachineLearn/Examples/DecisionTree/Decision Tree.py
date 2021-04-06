@@ -12,12 +12,6 @@ Parameters:
 	dataSet - 数据集
 Returns:
 	shannonEnt - 经验熵(香农熵)
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """
 def calcShannonEnt(dataSet):
 	numEntires = len(dataSet)						#返回数据集的行数
@@ -41,12 +35,6 @@ Parameters:
 Returns:
 	dataSet - 数据集
 	labels - 特征标签
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-20
 """
 def createDataSet():
 	dataSet = [[0, 0, 0, 0, 'no'],						#数据集
@@ -76,12 +64,6 @@ Parameters:
 	value - 需要返回的特征的值
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """
 def splitDataSet(dataSet, axis, value):		
 	retDataSet = []										#创建返回的数据集列表
@@ -99,12 +81,6 @@ Parameters:
 	dataSet - 数据集
 Returns:
 	bestFeature - 信息增益最大的(最优)特征的索引值
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-20
 """
 def chooseBestFeatureToSplit(dataSet):
 	numFeatures = len(dataSet[0]) - 1					#特征数量
@@ -135,12 +111,6 @@ Parameters:
 	classList - 类标签列表
 Returns:
 	sortedClassCount[0][0] - 出现此处最多的元素(类标签)
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """
 def majorityCnt(classList):
 	classCount = {}
@@ -159,12 +129,6 @@ Parameters:
 	featLabels - 存储选择的最优特征标签
 Returns:
 	myTree - 决策树
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-25
 """
 def createTree(dataSet, labels, featLabels):
 	classList = [example[-1] for example in dataSet]			#取分类标签(是否放贷:yes or no)
@@ -192,12 +156,6 @@ Parameters:
 	myTree - 决策树
 Returns:
 	numLeafs - 决策树的叶子结点的数目
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """
 def getNumLeafs(myTree):
     numLeafs = 0												#初始化叶子
@@ -216,12 +174,6 @@ Parameters:
 	myTree - 决策树
 Returns:
 	maxDepth - 决策树的层数
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """
 def getTreeDepth(myTree):
     maxDepth = 0												#初始化决策树深度
@@ -244,12 +196,6 @@ Parameters:
 	nodeType - 结点格式
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """
 def plotNode(nodeTxt, centerPt, parentPt, nodeType):
 	arrow_args = dict(arrowstyle="<-")											#定义箭头格式
@@ -266,12 +212,6 @@ Parameters:
 	txtString - 标注的内容
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """ 
 def plotMidText(cntrPt, parentPt, txtString):
 	xMid = (parentPt[0]-cntrPt[0])/2.0 + cntrPt[0]											#计算标注位置					
@@ -287,12 +227,6 @@ Parameters:
 	nodeTxt - 结点名
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """ 
 def plotTree(myTree, parentPt, nodeTxt):
 	decisionNode = dict(boxstyle="sawtooth", fc="0.8")										#设置结点格式
@@ -321,12 +255,6 @@ Parameters:
 	inTree - 决策树(字典)
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-24
 """ 
 def createPlot(inTree):
     fig = plt.figure(1, facecolor='white')													#创建fig
@@ -348,12 +276,6 @@ Parameters:
 	testVec - 测试数据列表，顺序对应最优特征标签
 Returns:
 	classLabel - 分类结果
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-25
 """ 
 def classify(inputTree, featLabels, testVec):
 	firstStr = next(iter(inputTree))														#获取决策树结点
@@ -374,17 +296,10 @@ Parameters:
 	filename - 决策树的存储文件名
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-25
 """ 
 def storeTree(inputTree, filename):
 	with open(filename, 'wb') as fw:
 		pickle.dump(inputTree, fw)
-
 """
 函数说明:读取决策树
 
@@ -392,12 +307,6 @@ Parameters:
 	filename - 决策树的存储文件名
 Returns:
 	pickle.load(fr) - 决策树字典
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-07-25
 """ 
 def grabTree(filename):
 	fr = open(filename, 'rb')
