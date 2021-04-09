@@ -65,11 +65,65 @@ def chooseBestFeatureToSplit(dataSet):
 ~~~
 
 ## sklearn.tree实现决策树
+### 1，导入模块
 ~~~py
 from sklearn import tree
-#使用数据，构建决策树
-clf = tree.DecisionTreeClassifier(max_depth = 4)					
-clf = clf.fit(lenses_pd.values.tolist(), lenses_target)	
-#对测试集进行分类
-clf.predict([[1,1,1,0]])
+~~~
+### 2，使用数据，构建决策树
+~~~py
+sklearn.tree.DecisionTreeClassifier(*, 
+criterion='gini', 
+splitter='best', 
+max_depth=None, 
+min_samples_split=2, 
+min_samples_leaf=1, 
+min_weight_fraction_leaf=0.0, max_features=None, 
+random_state=None, 
+max_leaf_nodes=None, 
+min_impurity_decrease=0.0, min_impurity_split=None, 
+class_weight=None, 
+ccp_alpha=0.0)
+~~~
+#### 参数：
+~~~
+* criterion{“gini”, “entropy”}, default=”gini”
+The function to measure the quality of a split. Supported criteria are “gini” for the Gini impurity and “entropy” for the information gain.
+衡量分割质量的功能。支持的标准是对基尼杂质的“基尼”和对信息增益的“熵”。
+
+* splitter{“best”, “random”}, default=”best”
+The strategy used to choose the split at each node. Supported strategies are “best” to choose the best split and “random” to choose the best random split.
+用于在每个节点上选择拆分的策略。支持的策略是“最佳”选择最佳拆分，“随机”选择最佳随机拆分。
+
+* max_depthint, default=None
+The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.
+树的最大深度。如果为None，则将节点展开，直到所有叶子都是纯净的，或者直到所有叶子都包含少于min_samples_split个样本。
+
+* min_samples_splitint or float, default=2
+The minimum number of samples required to split an internal node:
+** If int, then consider min_samples_split as the minimum number.
+** If float, then min_samples_split is a fraction and ceil(min_samples_split * n_samples) are the minimum number of samples for each split.
+在叶节点处需要的最小样本数。仅在任何深度的分裂点在min_samples_leaf左分支和右分支中的每个分支上至少留下训练样本时，才考虑。这可能具有平滑模型的效果，尤其是在回归中。
+如果为int，则认为min_samples_leaf是最小值。
+如果为float，min_samples_leaf则为分数， 是每个节点的最小样本数。ceil(min_samples_leaf * n_samples)
+~~~
+~~~py
+clf = clf.fit(trainSet, labels)
+~~~
+### 3，对测试集进行分类
+~~~py
+clf.predict(testSet)
+~~~
+
+## 决策树示例
+~~~py
+from sklearn import tree
+X = [[0, 0], [1, 1]]
+Y = [0, 1]
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(X, Y)
+#预测样本类别
+clf.predict([[2., 2.]])  #array([1])
+#预测每个类的概率(这个概率是叶中相同类的训练样本的分数)
+clf.predict_proba([[2., 2.]])  #array([[ 0.,  1.]])
+
 ~~~

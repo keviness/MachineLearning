@@ -28,6 +28,3 @@ if __name__ == "__main__":
     testSet = np.array([[42666, 13.2769, 0.540]])
     class1 = kNNClassifier(path, 3)
     class1.classficate(testSet)
-    
-
-        
