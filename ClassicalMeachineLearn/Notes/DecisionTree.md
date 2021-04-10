@@ -1,8 +1,8 @@
 # 决策树（Decision Tree）
-## 决策树定义
+## 一，决策树定义
 > 决策树(decision tree)是一种基本的分类与回归方法。
 
-## 决策树运行流程
+## 二，决策树运行流程
 * 1,收集数据：可以使用任何方法。比如想构建一个相亲系统，我们可以从媒婆那里，或者通过参访相亲对象获取数据。根据他们考虑的因素和最终的选择结果，就可以得到一些供我们利用的数据了。
 * 2,准备数据：收集完的数据，我们要进行整理，将这些所有收集的信息按照一定规则整理出来，并排版，方便我们进行后续处理。
 * 3,分析数据：可以使用任何方法，决策树构造完成之后，我们可以检查决策树图形是否符合预期。
@@ -10,7 +10,7 @@
 * 5,测试算法：使用经验树计算错误率。当错误率达到了可接收范围，这个决策树就可以投放使用了。
 * 6,使用算法：此步骤可以使用适用于任何监督学习算法，而使用决策树可以更好地理解数据的内在含义。
 
-## 常用概念
+## 三，决策树常用概念
 * 信息增益：在划分数据集之前之后信息发生的变化为信息增益，获得信息增益最高的特征就是最好的特征选择。
 * 经验熵/香农熵(empirical entropy)：熵中的概率由数据估计(特别是最大似然估计)得到时，所对应的熵称为经验熵。
 ![经验熵](./imgs/EmpiricalEntropy.png)
@@ -22,8 +22,8 @@
 * 熵与条件熵之差成为互信息(mutual information)。决策树学习中的信息增益等价于训练数据集中类与特征的互信息。
 
 
-## 实现原理
-### 计算经验熵
+## 四，决策树实现原理
+### （一）计算经验熵
 ~~~py
 def calcShannonEnt(dataSet):
     numEntires = len(dataSet)                        #返回数据集的行数
@@ -40,7 +40,7 @@ def calcShannonEnt(dataSet):
     return shannonEnt                        #返回经验熵(香农熵)
 ~~~
 
-### 计算信息增益
+### （二）计算信息增益
 ~~~py
 def chooseBestFeatureToSplit(dataSet):
     numFeatures = len(dataSet[0]) - 1                    #特征数量
@@ -64,12 +64,13 @@ def chooseBestFeatureToSplit(dataSet):
     return bestFeature                                             #返回信息增益最大的特征的索引值
 ~~~
 
-## sklearn.tree实现决策树
-### 1，导入模块
+## 五，sklearn.tree实现决策树
+### （一）导入tree模块
 ~~~py
 from sklearn import tree
 ~~~
-### 2，使用数据，构建决策树
+
+### （二）构建决策树
 ~~~py
 sklearn.tree.DecisionTreeClassifier(*, 
 criterion='gini', 
@@ -84,6 +85,7 @@ min_impurity_decrease=0.0, min_impurity_split=None,
 class_weight=None, 
 ccp_alpha=0.0)
 ~~~
+
 #### 参数：
 ~~~
 * criterion{“gini”, “entropy”}, default=”gini”
@@ -109,12 +111,12 @@ The minimum number of samples required to split an internal node:
 ~~~py
 clf = clf.fit(trainSet, labels)
 ~~~
-### 3，对测试集进行分类
+### （三）对测试集进行分类
 ~~~py
 clf.predict(testSet)
 ~~~
 
-## 决策树示例
+### （四）sklearn决策树使用示例
 ~~~py
 from sklearn import tree
 X = [[0, 0], [1, 1]]
@@ -125,5 +127,6 @@ clf = clf.fit(X, Y)
 clf.predict([[2., 2.]])  #array([1])
 #预测每个类的概率(这个概率是叶中相同类的训练样本的分数)
 clf.predict_proba([[2., 2.]])  #array([[ 0.,  1.]])
-
 ~~~
+
+
