@@ -64,7 +64,7 @@ def chooseBestFeatureToSplit(dataSet):
     return bestFeature                                             #返回信息增益最大的特征的索引值
 ~~~
 
-## 五，sklearn.tree实现决策树
+## 五，sklearn.tree实现决策树分类器（Decision Classifier）
 ### （一）导入tree模块
 ~~~py
 from sklearn import tree
@@ -129,4 +129,15 @@ clf.predict([[2., 2.]])  #array([1])
 clf.predict_proba([[2., 2.]])  #array([[ 0.,  1.]])
 ~~~
 
+## 六，sklearn.tree实现决策树回归（Decision Regressionor）
 
+> 决策树通过使用 DecisionTreeRegressor 类也可以用来解决回归问题。如在分类设置中，拟合方法将数组X和数组y作为参数，只有在这种情况下，y数组预期才是浮点值:
+~~~py
+>>> from sklearn import tree
+>>> X = [[0, 0], [2, 2]]
+>>> y = [0.5, 2.5]
+>>> clf = tree.DecisionTreeRegressor()
+>>> clf = clf.fit(X, y)
+>>> clf.predict([[1, 1]])
+array([ 0.5])
+~~~
