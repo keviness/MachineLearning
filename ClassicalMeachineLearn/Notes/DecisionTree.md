@@ -86,7 +86,7 @@ class_weight=None,
 ccp_alpha=0.0)
 ~~~
 
-#### 参数：
+#### 参数详解：
 ~~~
 * criterion{“gini”, “entropy”}, default=”gini”
 The function to measure the quality of a split. Supported criteria are “gini” for the Gini impurity and “entropy” for the information gain.
@@ -129,6 +129,21 @@ clf.predict([[2., 2.]])  #array([1])
 clf.predict_proba([[2., 2.]])  #array([[ 0.,  1.]])
 ~~~
 
+### （五）sklearn决策树方法
+| 方法   |    描述   |
+|:-----:|:---------:|
+|apply（X [，check_input]）| 返回每个样本被预测为的叶子的索引。|
+|cost_complexity_pruning_path（X，y [，…]）| 在最小成本复杂性修剪期间计算修剪路径。|
+|decision_path（X [，check_input]）| 返回树中的决策路径。|
+|fit（X，y [，sample_weight，check_input，…]）| 从训练集（X，y）构建决策树分类器。|
+|get_depth（）|返回决策树的深度。|
+|get_n_leaves（）|返回决策树的叶子数。|
+|get_params（[深的]）|获取此估计量的参数。|
+|predict（X [，check_input]）|预测X的类或回归值。|
+|predict_log_proba（X）|预测输入样本X的类对数概率。|
+|predict_proba（X [，check_input]）|预测输入样本X的类别概率。|
+|score（X，y [，sample_weight]）|返回给定测试数据和标签上的平均准确度。|
+|set_params（**参数）| 设置此估算器的参数。|
 ## 六，sklearn.tree实现决策树回归（Decision Regressionor）
 
 > 决策树通过使用 DecisionTreeRegressor 类也可以用来解决回归问题。如在分类设置中，拟合方法将数组X和数组y作为参数，只有在这种情况下，y数组预期才是浮点值:
