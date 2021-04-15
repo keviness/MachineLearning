@@ -144,8 +144,8 @@ clf.predict_proba([[2., 2.]])  #array([[ 0.,  1.]])
 |predict_proba（X [，check_input]）|预测输入样本X的类别概率。|
 |score（X，y [，sample_weight]）|返回给定测试数据和标签上的平均准确度。|
 |set_params（**参数）| 设置此估算器的参数。|
-## 六，sklearn.tree实现决策树回归（Decision Regressionor）
 
+## 六，sklearn.tree实现决策树回归（Decision Regressionor）
 > 决策树通过使用 DecisionTreeRegressor 类也可以用来解决回归问题。如在分类设置中，拟合方法将数组X和数组y作为参数，只有在这种情况下，y数组预期才是浮点值:
 ~~~py
 >>> from sklearn import tree

@@ -1,24 +1,24 @@
 # k-NN算法（k-邻近）
 > k-Nearest Neighber
-## k-NN算法含义
+## 一，k-NN算法含义
 &emsp;存在一个样本数据集合，也称作为训练样本集，并且样本集中每个数据都存在标签，即知道样本集中每一个数据与所属分类的对应关系。输入无标签的新数据后，将新的数据的每个特征与样本集中数据对应的特征进行比较，然后算法提取样本最相似数据(最近邻)的分类标签，k值一般不超过20。
 > 实质：KNN是通过测量不同特征值之间的距离进行分类。
 
 ![k-NN示意图](./imgs/k_NN.jpeg)
 
-## k-NN算法步骤
+## 二，k-NN算法步骤
 * 计算已知类别数据集中的点与当前点之间的距离；
 * 按照距离递增次序排序；
 * 选取与当前点距离最小的k个点；
 * 确定前k个点所在类别的出现频率；
 * 返回前k个点所出现频率最高的类别作为当前点的预测分类
 
-## 特征数值的归一化
+### （一）特征数值的归一化
 &emsp;在处理这种不同取值范围的特征值时，我们通常采用的方法是将数值归一化，如将取值范围处理为０到１或者-１到１之间。
 >下面的公式可以将任意取值范围的特征值转化为０到１区间内的值：
 newValue = (oldValue-minValue)/(maxValue-minValue)
 
-## k-NN算法简单实现
+## 三，k-NN算法编程实现
 ~~~py
     sqDiff = (inX - dataSet)**2
     sqDistance = sqDiff.sum(axis=1)
@@ -37,7 +37,8 @@ newValue = (oldValue-minValue)/(maxValue-minValue)
     sortedClassCount = sorted(classCount.items(),key=operator.itemgetter(1),reverse=True)
     print("sortdClassCount:\n", sortedClassCount)
 ~~~
-## k-NN sklearn模块实现
+
+## 四，k-NN sklearn模块实现
 
 ### 1，构建kNN分类器
 ~~~py
@@ -62,3 +63,29 @@ neigh.fit(trainingMat, hwLabels)
 ~~~py
 classifierResult = neigh.predict(vectorUnderTest)
 ~~~
+### 4，示例
+~~~py
+>>> X = [[0], [1], [2], [3]]
+>>> y = [0, 0, 1, 1]
+>>> from sklearn.neighbors import KNeighborsClassifier
+>>> neigh = KNeighborsClassifier(n_neighbors=3)
+>>> neigh.fit(X, y)
+KNeighborsClassifier(...)
+>>> print(neigh.predict([[1.1]]))
+[0]
+>>> print(neigh.predict_proba([[0.9]]))
+[[0.66666667 0.33333333]]
+~~~
+
+### 5，常用方法
+|Methods  | Descriptions|
+|:-------:|:-----------:|
+|fit(X, y) | Fit the k-nearest neighbors classifier from the training dataset.|
+|get_params([deep]) |Get parameters for this estimator.|
+|kneighbors([X, n_neighbors, return_distance])|Finds the K-neighbors of a point.|
+|kneighbors_graph([X, n_neighbors, mode]) | Computes the (weighted) graph of k-Neighbors for points in X|
+|  predict(X)  |Predict the class labels for the provided data.|
+|predict_proba(X) |Return probability estimates for the test vector X.|
+|score(X, y[, sample_weight]) |Return the mean accuracy on the given test data and labels.|
+|set_params(**params) |Set the parameters of this estimator.|
+
