@@ -6,14 +6,14 @@ class NaiveBayesWords(object):
         self.data = data
         self.labels = labels
     
-    def crateVocabularyList(self):
+    def __crateVocabularyList(self):
         retSet = set([])
         for document in self.data:
             retSet = set(document) | retSet
         return list(retSet)
 
-    def wordToVector(self, inputWordSet):
-        vocabularySet = self.crateVocabularyList()
+    def __wordToVector(self, inputWordSet):
+        vocabularySet = self.__crateVocabularyList()
         result_list = np.zeros(len(vocabularySet), dtype=int)
         for word in inputWordSet:
             if word in vocabularySet:
@@ -23,8 +23,8 @@ class NaiveBayesWords(object):
         return result_list
 
     def classifyNaiveBayes(self, testWordSet):
-        trainSet = np.array([self.wordToVector(x) for x in self.data])
-        testSet = np.array([self.wordToVector(testWordSet)])
+        trainSet = np.array([self.__wordToVector(x) for x in self.data])
+        testSet = np.array([self.__wordToVector(testWordSet)])
         print("trainSet:\n", trainSet)
         print("testSet:\n", testSet)
 
