@@ -36,12 +36,13 @@ class NaiveBayesWords(object):
         return result
 
 if __name__ == "__main__":
-    data = [['my', 'dog', 'has', 'flea', 'problems', 'help', 'please'],  # 切分的词条
-            ['maybe', 'not', 'take', 'him', 'to', 'dog', 'park', 'stupid'],
-            ['my', 'dalmation', 'is', 'so', 'cute', 'I', 'love', 'him'],
-            ['stop', 'posting', 'stupid', 'worthless', 'garbage'],
-            ['mr', 'licks', 'ate', 'my', 'steak', 'how', 'to', 'stop', 'him'],
-            ['quit', 'buying', 'worthless', 'dog', 'food', 'stupid']]
+    data = np.array([np.array(['my', 'dog', 'has', 'flea', 'problems', 'help', 'please']),  # 切分的词条
+            np.array(['maybe', 'not', 'take', 'him', 'to', 'dog', 'park', 'stupid']),
+            np.array(['my', 'dalmation', 'is', 'so', 'cute', 'I', 'love', 'him']),
+            np.array(['stop', 'posting', 'stupid', 'worthless', 'garbage']),
+            np.array(['mr', 'licks', 'ate', 'my', 'steak', 'how', 'to', 'stop', 'him']),
+            np.array(['quit', 'buying', 'worthless', 'dog', 'food', 'stupid'])], dtype = object)
+    print('data:\n', data)
     labels = [0, 1, 0, 1, 0, 1]
     testWordSet1 = ['love', 'my', 'dalmation', 'dog', 'stupid', 'worthless']
     testWordSet2 = ['stupid', 'garbage']

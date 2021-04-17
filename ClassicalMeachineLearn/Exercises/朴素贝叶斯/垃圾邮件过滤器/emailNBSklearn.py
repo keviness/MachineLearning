@@ -27,8 +27,8 @@ class NaiveBayesWordsFilter(object):
     def classifyNaiveBayes(self, testWordSet):
         trainSet = np.array([self.__wordToVector(x) for x in self.data])
         testSet = np.array([self.__wordToVector(testWordSet)])
-        print("trainSet:\n", trainSet)
-        print("testSet:\n", testSet)
+        #print("trainSet:\n", trainSet)
+        #print("testSet:\n", testSet)
 
         classifyModle = MultinomialNB()
         classifyModle.fit(trainSet, self.labels)
@@ -47,37 +47,45 @@ class LoadDataFromFiles(object):
         content = f.read()
         f.close()
         contentList = re.split(r"\W+", content)
-        print("content list:\n", contentList)
+        contentList = [tok.lower() for tok in contentList if len(tok) > 2]
+        #print("content list:\n", contentList)
 
         return np.array(contentList)
 
     def loadFileFromDir(self):
         wordsArray = []
-        i=1
         for file in listdir(self.inputPath)[::-1]:
             fileName = self.inputPath+file
-            print(fileName)
+            #print(fileName)
             postfix = file.split('.')[-1]
             if postfix != self.filePostfix:
                 print("Not find the %s file in the directory!"%fileName )
                 continue
-            '''
             contendList = self.readFile(fileName)
             wordsArray.append(contendList)
-            i+=1
-        print("words Array:\n", wordsArray)
-
+        wordsArray = np.array(wordsArray, dtype='object')
+        #print("words Array:\n", wordsArray)
         return wordsArray
-        '''
 
 if __name__ == '__main__':
-    inputPath = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/朴素贝叶斯/垃圾邮件过滤器/email/ham/'
+    inputPath1 = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/朴素贝叶斯/垃圾邮件过滤器/email/ham/'
+    inputPath2 = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/朴素贝叶斯/垃圾邮件过滤器/email/spam/'
+    inputPath3 = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/朴素贝叶斯/垃圾邮件过滤器/email/test/'
     filePostfilx = 'txt'
-    instance = LoadDataFromFiles(inputPath, filePostfilx)
-    instance.loadFileFromDir()
+    instance1 = LoadDataFromFiles(inputPath1, filePostfilx)
+    wordsData1 = instance1.loadFileFromDir()
+    #print("wordsData1:\n", wordsData1)
+    instance2 = LoadDataFromFiles(inputPath2, filePostfilx)
+    wordsData2 = instance2.loadFileFromDir()
+    #print("wordsData2:\n", wordsData2)
+    data = np.concatenate((wordsData1, wordsData2))
+    labels = ['No spam']*25+['yes spam']*25
+    #--test vector--
+    testInstance1 = LoadDataFromFiles(inputPath3, filePostfilx)
+    testWordsDatas = testInstance1.loadFileFromDir()
+    for testWordsData in testWordsDatas:
+        #print("data:\n", data)
+        print('testWordsData:\n', testWordsData)
+        classModel = NaiveBayesWordsFilter(data, labels)
+        classModel.classifyNaiveBayes(testWordsData)
             
-
-            
-
-
-
