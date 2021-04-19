@@ -116,7 +116,49 @@ def colicTest():
 ~~~
 
 ## 四，sklearn module实现Logistic Regression
-### （一）
-### （二）示例
+### （一）定义Logistic Regression
 ~~~py
+sklearn.linear_model.LogisticRegression(
+    penalty='l2', *,  # 用于指定惩罚中使用的规范。'newton-cg'，'sag'和'lbfgs'求解器仅支持l2罚分。仅“ saga”求解器支持“ elasticnet”。如果为“ none”（liblinear求解器不支持），则不应用任何正则化。
+    dual=False, 
+    tol=0.0001, 
+    C=1.0, 
+    fit_intercept=True, 
+    intercept_scaling=1, 
+    class_weight=None, # 与形式的类有关的权重。如果未给出，则所有类均应具有权重一。
+    random_state=None,  # 在solver=='sag'，'saga'或'liblinear'时，用于随机整理数据
+    solver='lbfgs', 
+    max_iter=100, 
+    multi_class='auto', 
+    verbose=0, 
+    warm_start=False, 
+    n_jobs=None, 
+    l1_ratio=None)
 ~~~
+### （三）示例
+~~~py
+>>> from sklearn.datasets import load_iris
+>>> from sklearn.linear_model import LogisticRegression
+>>> X, y = load_iris(return_X_y=True)
+>>> clf = LogisticRegression(random_state=0).fit(X, y)
+>>> clf.predict(X[:2, :])
+array([0, 0])
+>>> clf.predict_proba(X[:2, :])
+array([[9.8...e-01, 1.8...e-02, 1.4...e-08],
+       [9.7...e-01, 2.8...e-02, ...e-08]])
+>>> clf.score(X, y)
+0.97...
+~~~
+### （四）方法
+| Method |  Description  |
+|:------:|:-------------:|
+|decision_function（X） ｜ 预测样本的置信度得分|
+|densify（）|将系数矩阵转换为密集数组格式|
+|fit（X，y [，sample_weight]）|根据给定的训练数据拟合模型|
+|get_params（[深的]）|获取此估计量的参数|
+|predict（X）| 预测X中样本的类别标签|
+|predict_log_proba（X）|预测概率估计的对数|
+|predict_proba（X）| 概率估计|
+|score（X，y [，sample_weight]）| 返回给定测试数据和标签上的平均准确度|
+|set_params（**参数）| 设置此估算器的参数|
+|sparsify（） | 将系数矩阵转换为稀疏格式|
