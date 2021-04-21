@@ -59,7 +59,7 @@ class LoadDataFromFiles(object):
             #print(fileName)
             postfix = file.split('.')[-1]
             if postfix != self.filePostfix:
-                print("Not find the %s file in the directory!"%fileName )
+                print("Not find the %s file in the directory!" %fileName )
                 continue
             contendList = self.readFile(fileName)
             wordsArray.append(contendList)
