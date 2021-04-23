@@ -44,10 +44,10 @@ class LoadDataFromFiles(object):
             DataList = self.loadFileFrom(subdirName, fileFolder)
             allDataList.append(DataList)
         allDataList = np.array(allDataList, dtype=object)
-        labelList = allDataList[:, 0]
-        trainWordsList = allDataList[:, 1]
+        labelList = allDataList[:, :, 0]
+        #trainWordsList = allDataList[:,:,1]
         #print("all data List:\n", allDataList)
-        #print("label list:\n", labelList)
+        print("label list:\n", labelList)
         #print("trainWordsList:\n", trainWordsList)
         return allDataList
 

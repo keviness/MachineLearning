@@ -17,12 +17,6 @@ Returns:
 	test_data_list - 测试集列表
 	train_class_list - 训练集标签列表
 	test_class_list - 测试集标签列表
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-08-22
 """
 def TextProcessing(folder_path, test_size = 0.2):
 	folder_list = os.listdir(folder_path)						#查看folder_path下的文件
@@ -78,12 +72,6 @@ Parameters:
 	words_file - 文件路径
 Returns:
 	words_set - 读取的内容的set集合
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-08-22
 """
 def MakeWordsSet(words_file):
 	words_set = set()											#创建set集合
@@ -104,12 +92,6 @@ Parameters:
 Returns:
 	train_feature_list - 训练集向量化列表
 	test_feature_list - 测试集向量化列表
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-08-22
 """
 def TextFeatures(train_data_list, test_data_list, feature_words):
 	def text_features(text, feature_words):						#出现在特征集中，则置1												
@@ -130,12 +112,6 @@ Parameters:
 	stopwords_set - 指定的结束语
 Returns:
 	feature_words - 特征集
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-08-22
 """
 def words_dict(all_words_list, deleteN, stopwords_set = set()):
 	feature_words = []							#特征列表
@@ -159,12 +135,6 @@ Parameters:
 	test_class_list - 测试集分类标签
 Returns:
 	test_accuracy - 分类器精度
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Modify:
-	2017-08-22
 """
 def TextClassifier(train_feature_list, test_feature_list, train_class_list, test_class_list):
 	classifier = MultinomialNB().fit(train_feature_list, train_class_list)
