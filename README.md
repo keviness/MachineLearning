@@ -35,10 +35,28 @@
 | Chapters | Descriptions | Notes |  Examples  |
 |:--------:|:------------:|:----------:|:----------:|
 |  第一章   |  绪论：机器学习定义、分类 |[绪论](./ClassicalMeachineLearn/Notes/绪论.md)| -- |
-|  第二章   |  k-邻近（k-NN，k-Nearest Neighbor|[k-NN](./ClassicalMeachineLearn/Notes/k-NN.md)  | [k-邻近示例](./ClassicalMeachineLearn/Examples/k邻近算法)|
+|  第二章   |  k-邻近（k-NN，k-Nearest Neighbor）|[k-NN](./ClassicalMeachineLearn/Notes/k-NN.md)  | [k-邻近示例](./ClassicalMeachineLearn/Examples/k邻近算法)|
 |  第三章   |  支持向量机（SVM,Support Vector Meachine)|[支持向量机](./ClassicalMeachineLearn/Notes/支持向量机.md)| [支持向量机](./ClassicalMeachineLearn/Examples/支持向量机) |
 |  第四章   |  决策树（Decision Tree）|[Decision Tree](./ClassicalMeachineLearn/Notes/DecisionTree.md) |[决策树示例](./ClassicalMeachineLearn/Examples/DecisionTree)|
+|  第五章   |  朴素贝叶斯（Naive Bayes）  | [Naive Bayes](./ClassicalMeachineLearn/Notes/NaiveBayes.md)| [Naive Bayes](./ClassicalMeachineLearn/Examples/NaiveBayes)|
 |  第五章   |  逻辑回归（Logistic Regression）|[Logistic Regression](./ClassicalMeachineLearn/Notes/LogisticRegression.md) |[Logistic Regression](./ClassicalMeachineLearn/Examples/LogisticRegression)|
 
 ### Exercises
+#### 1，k-邻近（k-NN，k-Nearest Neighbor）
+* [海伦约会](./ClassicalMeachineLearn/Exercises/k邻近算法/海伦约会)
+* [数字识别](./ClassicalMeachineLearn/Exercises/k邻近算法/数字识别)
 
+#### 2，支持向量机（SVM,Support Vector Meachine)
+
+#### 3，决策树（Decision Tree）
+* [贷款问题](./ClassicalMeachineLearn/Exercises/决策树/贷款问题)
+* [隐形眼镜问题](./ClassicalMeachineLearn/Exercises/决策树/隐形眼镜问题)
+
+#### 4，朴素贝叶斯（Naive Bayes）
+* [垃圾邮件过滤器](./ClassicalMeachineLearn/Exercises/朴素贝叶斯/垃圾邮件过滤器)
+* [新浪新闻分类](./ClassicalMeachineLearn/Exercises/朴素贝叶斯/新浪新闻分类)
+* [言论过滤器](./ClassicalMeachineLearn/Exercises/朴素贝叶斯/言论过滤器)
+
+#### 5，逻辑回归（Logistic Regression）
+* 
+* 
