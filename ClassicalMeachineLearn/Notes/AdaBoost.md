@@ -45,7 +45,6 @@ Boosting：各个预测函数只能顺序生成，因为后一个模型参数需
 >* AdaBoost + 决策树 = 提升树
 >* Gradient Boosting + 决策树 = GBDT
 
-
 ## 二，AdaBoost
 >AdaBoost算法总结
 ![AdaBoost](./imgs/adaboost.jpeg)
@@ -57,3 +56,29 @@ Boosting：各个预测函数只能顺序生成，因为后一个模型参数需
 >* 3、计算弱学习算法权重
 弱学习算法也有一个权重，用向量α表示，利用错误率计算权重α。
 
+## 三，python实现Adaboost
+~~~py
+def adaBoostTrainDS(dataArr, classLabels, numIt = 40):
+    weakClassArr = []
+    m = np.shape(dataArr)[0]
+    D = np.mat(np.ones((m, 1)) / m)                                            #初始化权重
+    aggClassEst = np.mat(np.zeros((m,1)))
+    for i in range(numIt):
+        bestStump, error, classEst = buildStump(dataArr, classLabels, D)     #构建单层决策树
+        print("D:",D.T)
+        alpha = float(0.5 * np.log((1.0 - error) / max(error, 1e-16)))         #计算弱学习算法权重alpha,使error不等于0,因为分母不能为0
+        bestStump['alpha'] = alpha                                          #存储弱学习算法权重
+        weakClassArr.append(bestStump)                                      #存储单层决策树
+        print("classEst: ", classEst.T)
+        expon = np.multiply(-1 * alpha * np.mat(classLabels).T, classEst)     #计算e的指数项
+        D = np.multiply(D, np.exp(expon))                                      
+        D = D / D.sum()                                                        #根据样本权重公式，更新样本权重
+        #计算AdaBoost误差，当误差为0的时候，退出循环
+        aggClassEst += alpha * classEst                                 
+        print("aggClassEst: ", aggClassEst.T)
+        aggErrors = np.multiply(np.sign(aggClassEst) != np.mat(classLabels).T, np.ones((m,1)))     #计算误差
+        errorRate = aggErrors.sum() / m
+        print("total error: ", errorRate)
+        if errorRate == 0.0: break                                             #误差为0，退出循环
+    return weakClassArr, aggClassEst
+~~~
