@@ -116,8 +116,8 @@ Returns:
 	无
 """
 def colicSklearn():
-	frTrain = open('horseColicTraining.txt')				#打开训练集
-	frTest = open('horseColicTest.txt')						#打开测试集
+	frTrain = open('horseColicTraining.txt')		#打开训练集
+	frTest = open('horseColicTest.txt')			    #打开测试集
 	trainingSet = []; trainingLabels = []
 	testSet = []; testLabels = []
 	for line in frTrain.readlines():

@@ -13,9 +13,9 @@
 * 传统监督学习（Traditional Supervised Learning）
 * * 分类算法
 * * * k-NN(k-邻近算法 k-Nearest Neighbor, k-NN)
-* * * 决策树
-* * * 朴素贝叶斯
-* * * 逻辑回归
+* * * 决策（Decision Tree）
+* * * 朴素贝叶斯（Naive Bayes）
+* * * 逻辑回归（Logistic Regression）
 * * * 随机森林
 * * * 支持向量机（Support Vector Machine）
 * * * EM算法（Expection MaxiMaximization algorithm）
@@ -58,5 +58,6 @@
 * [言论过滤器](./ClassicalMeachineLearn/Exercises/朴素贝叶斯/言论过滤器)
 
 #### 5，逻辑回归（Logistic Regression）
-* 
-* 
+* [logistic回归基础训练](./ClassicalMeachineLearn/Exercises/逻辑回归/logistic回归基础训练)
+* [改进随机梯度上升法](./ClassicalMeachineLearn/Exercises/逻辑回归/改进随机梯度上升法)
+* [病马死亡率预测](./ClassicalMeachineLearn/Exercises/逻辑回归/病马死亡率预测)

@@ -40,14 +40,14 @@ def gradAscent(dataMatIn, classLabels):
 * 2，python实现随机梯度算法
 ~~~py
 def stocGradAscent1(dataMatrix, classLabels, numIter=150):
-	m,n = np.shape(dataMatrix)												#返回dataMatrix的大小。m为行数,n为列数。
-	weights = np.ones(n)   													#参数初始化										#存储每次更新的回归系数
+	m,n = np.shape(dataMatrix)				#返回dataMatrix的大小。m为行数,n为列数。
+	weights = np.ones(n)   									#参数初始化										#存储每次更新的回归系数
 	for j in range(numIter):											
 		dataIndex = list(range(m))
 		for i in range(m):			
-			alpha = 4/(1.0+j+i)+0.01   	 									#降低alpha的大小，每次减小1/(j+i)。
+			alpha = 4/(1.0+j+i)+0.01   	 			#降低alpha的大小，每次减小1/(j+i)。
 			randIndex = int(random.uniform(0,len(dataIndex)))				#随机选取样本
-			h = sigmoid(sum(dataMatrix[randIndex]*weights))					#选择随机选取的一个样本，计算h
+			h = sigmoid(sum(dataMatrix[randIndex]*weights))		#选择随机选取的一个样本，计算h
 			error = classLabels[randIndex] - h 								#计算误差
 			weights = weights + alpha * error * dataMatrix[randIndex]   	#更新回归系数
 			del(dataIndex[randIndex]) 										#删除已经使用的样本
@@ -60,7 +60,10 @@ def stocGradAscent1(dataMatrix, classLabels, numIter=150):
 * 分析数据：采用任意方法对数据进行分析。
 * 训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数。
 * 测试算法：一旦训练步骤完成，分类将会很快。
-* 使用算法：首先，我们需要输入一些数据，并将其转换成对应的结构化数值；接着，基于训练好的回归系数，就可以对这些数值进行简单的回归计算，判定它们属于哪个类别；在这之后，就可以在输出的类别上做一些其他分析工作。
+* 使用算法：
+1，我们需要输入一些数据，并将其转换成对应的结构化数值；
+2，基于训练好的回归系数，就可以对这些数值进行简单的回归计算，判定它们属于哪个类别；
+3，在这之后，就可以在输出的类别上做一些其他分析工作。
 * 其他：Logistic回归的目的是寻找一个非线性函数Sigmoid的最佳拟合参数，求解过程可以由最优化算法完成。
 
 ## 三，python实现Logistic回归
@@ -101,7 +104,8 @@ def colicTest():
 			lineArr.append(float(currLine[i]))
 		trainingSet.append(lineArr)
 		trainingLabels.append(float(currLine[-1]))
-	trainWeights = stocGradAscent1(np.array(trainingSet), trainingLabels, 500)	#使用改进的随即上升梯度训练
+	trainWeights = stocGradAscent1(np.array(trainingSet), trainingLabels, 500)	
+    #使用改进的随即上升梯度训练
 	errorCount = 0; numTestVec = 0.0
 	for line in frTest.readlines():
 		numTestVec += 1.0
