@@ -45,7 +45,7 @@ Boosting：各个预测函数只能顺序生成，因为后一个模型参数需
 >* AdaBoost + 决策树 = 提升树
 >* Gradient Boosting + 决策树 = GBDT
 
-## 二，AdaBoost
+## 二，AdaBoost算法
 >AdaBoost算法总结
 ![AdaBoost](./imgs/adaboost.jpeg)
 >AdaBoost算法是基于Boosting思想的机器学习算法，AdaBoost是adaptive boosting（自适应boosting）的缩写，其运行过程如下：
@@ -56,7 +56,8 @@ Boosting：各个预测函数只能顺序生成，因为后一个模型参数需
 >* 3、计算弱学习算法权重
 弱学习算法也有一个权重，用向量α表示，利用错误率计算权重α。
 
-## 三，python实现Adaboost
+## 三，Adaboost算法实现
+### （一）Adaboost python自定义实现
 ~~~py
 def adaBoostTrainDS(dataArr, classLabels, numIt = 40):
     weakClassArr = []
@@ -81,4 +82,43 @@ def adaBoostTrainDS(dataArr, classLabels, numIt = 40):
         print("total error: ", errorRate)
         if errorRate == 0.0: break                                             #误差为0，退出循环
     return weakClassArr, aggClassEst
+~~~
+### （二）Adaboost sklearn module实现
+#### 1，sklearn.ensemble.AdaBoostClassifier()的参数
+~~~py
+sklearn.ensemble.AdaBoostClassifier(base_estimator=None, 
+*, n_estimators=50, 
+learning_rate=1.0, 
+algorithm='SAMME.R', 
+random_state=None)
+~~~
+#### 2，常用方法
+|   Functions   |   Description   |
+|:---------------:|:---------------:|
+|decision_function(X) | Compute the decision function of X.|
+|fit(X, y[, sample_weight]) |Build a boosted classifier from the training set (X, y)|
+|get_params([deep]) |Get parameters for this estimator|
+|predict(X)  | Predict classes for X|
+|predict_log_proba(X)  |Predict class log-probabilities for X |
+|predict_proba(X)   |  Predict class probabilities for X|
+|score(X, y[, sample_weight])  | Return the mean accuracy on the given test data and labels|
+|set_params(**params)  | Set the parameters of this estimator|
+|staged_decision_function(X)  |Compute decision function of X for each boosting iteration|
+|staged_predict(X)  |Return staged predictions for X|
+|staged_predict_proba(X)  | Predict class probabilities for X|
+|staged_score(X, y[, sample_weight]) | Return staged scores for X, y|
+#### 2，实现代码
+~~~py
+>>> from sklearn.ensemble import AdaBoostClassifier
+>>> from sklearn.datasets import make_classification
+>>> X, y = make_classification(n_samples=1000, n_features=4,
+...                            n_informative=2, n_redundant=0,
+...                            random_state=0, shuffle=False)
+>>> clf = AdaBoostClassifier(n_estimators=100, random_state=0)
+>>> clf.fit(X, y)
+AdaBoostClassifier(n_estimators=100, random_state=0)
+>>> clf.predict([[0, 0, 0, 0]])
+array([1])
+>>> clf.score(X, y)
+0.983...
 ~~~
