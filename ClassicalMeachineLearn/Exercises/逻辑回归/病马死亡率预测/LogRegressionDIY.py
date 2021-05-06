@@ -53,8 +53,6 @@ Parameters:
 Returns:
 	weights.getA() - 求得的权重数组(最优参数)
 """
-
-
 def gradAscent(dataMatIn, classLabels):
 	dataMatrix = np.mat(dataMatIn)  # 转换成numpy的mat
 	labelMat = np.mat(classLabels).transpose()  # 转换成numpy的mat,并进行转置
@@ -68,6 +66,22 @@ def gradAscent(dataMatIn, classLabels):
 		weights = weights + alpha * dataMatrix.transpose() * error
 	return weights.getA()  # 将矩阵转换为数组，并返回
 
+
+"""
+函数说明:分类函数
+
+Parameters:
+	inX - 特征向量
+	weights - 回归系数
+Returns:
+	分类结果
+"""
+def classifyVector(inX, weights):
+    prob = sigmoid(sum(inX*weights))
+    if prob > 0.5:
+    	return 1.0
+    else:
+    	return 0.0
 
 """
 函数说明:使用Python写的Logistic分类器做预测
@@ -104,23 +118,6 @@ def colicTest():
 			errorCount += 1
 	errorRate = (float(errorCount)/numTestVec) * 100  # 错误率计算
 	print("测试集错误率为: %.2f%%" % errorRate)
-
-
-"""
-函数说明:分类函数
-
-Parameters:
-	inX - 特征向量
-	weights - 回归系数
-Returns:
-	分类结果
-"""
-def classifyVector(inX, weights):
-    prob = sigmoid(sum(inX*weights))
-    if prob > 0.5:
-    	return 1.0
-    else:
-    	return 0.0
 
 '''
 """
@@ -159,4 +156,4 @@ def colicSklearn():
 '''
 
 if __name__ == '__main__':
-	colicSklearn()
+	colicTest()

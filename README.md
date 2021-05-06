@@ -47,6 +47,7 @@
 * [数字识别](./ClassicalMeachineLearn/Exercises/k邻近算法/数字识别)
 
 #### 2，支持向量机（SVM,Support Vector Meachine)
+* [SVM手写数字识别](./ClassicalMeachineLearn/Exercises/支持向量机/SVM手写数字识别)
 
 #### 3，决策树（Decision Tree）
 * [贷款问题](./ClassicalMeachineLearn/Exercises/决策树/贷款问题)

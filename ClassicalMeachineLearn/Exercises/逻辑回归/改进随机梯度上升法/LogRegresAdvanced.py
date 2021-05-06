@@ -13,14 +13,6 @@ Parameters:
 Returns:
 	dataMat - 数据列表
 	labelMat - 标签列表
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Zhihu:
-	https://www.zhihu.com/people/Jack--Cui/
-Modify:
-	2017-08-28
 """
 def loadDataSet():
 	dataMat = []														#创建数据列表
@@ -40,14 +32,6 @@ Parameters:
 	inX - 数据
 Returns:
 	sigmoid函数
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Zhihu:
-	https://www.zhihu.com/people/Jack--Cui/
-Modify:
-	2017-08-28
 """
 def sigmoid(inX):
 	return 1.0 / (1 + np.exp(-inX))
@@ -61,14 +45,6 @@ Parameters:
 Returns:
 	weights.getA() - 求得的权重数组(最优参数)
 	weights_array - 每次更新的回归系数
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Zhihu:
-	https://www.zhihu.com/people/Jack--Cui/
-Modify:
-	2017-08-28
 """
 def gradAscent(dataMatIn, classLabels):
 	dataMatrix = np.mat(dataMatIn)										#转换成numpy的mat
@@ -96,14 +72,6 @@ Parameters:
 Returns:
 	weights - 求得的回归系数数组(最优参数)
 	weights_array - 每次更新的回归系数
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Zhihu:
-	https://www.zhihu.com/people/Jack--Cui/
-Modify:
-	2017-08-31
 """
 def stocGradAscent1(dataMatrix, classLabels, numIter=150):
 	m,n = np.shape(dataMatrix)												#返回dataMatrix的大小。m为行数,n为列数。
@@ -129,14 +97,6 @@ Parameters:
 	weights - 权重参数数组
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Zhihu:
-	https://www.zhihu.com/people/Jack--Cui/
-Modify:
-	2017-08-30
 """
 def plotBestFit(weights):
 	dataMat, labelMat = loadDataSet()									#加载数据集
@@ -168,14 +128,6 @@ Parameters:
 	weights_array2 - 回归系数数组2
 Returns:
 	无
-Author:
-	Jack Cui
-Blog:
-	http://blog.csdn.net/c406495762
-Zhihu:
-	https://www.zhihu.com/people/Jack--Cui/
-Modify:
-	2017-08-30
 """
 def plotWeights(weights_array1,weights_array2):
 	#设置汉字格式
