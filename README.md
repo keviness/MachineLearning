@@ -39,7 +39,8 @@
 |  第三章   |  支持向量机（SVM,Support Vector Meachine)|[支持向量机](./ClassicalMeachineLearn/Notes/支持向量机.md)| [支持向量机](./ClassicalMeachineLearn/Examples/支持向量机) |
 |  第四章   |  决策树（Decision Tree）|[Decision Tree](./ClassicalMeachineLearn/Notes/DecisionTree.md) |[决策树示例](./ClassicalMeachineLearn/Examples/DecisionTree)|
 |  第五章   |  朴素贝叶斯（Naive Bayes）  | [Naive Bayes](./ClassicalMeachineLearn/Notes/NaiveBayes.md)| [Naive Bayes](./ClassicalMeachineLearn/Examples/NaiveBayes)|
-|  第五章   |  逻辑回归（Logistic Regression）|[Logistic Regression](./ClassicalMeachineLearn/Notes/LogisticRegression.md) |[Logistic Regression](./ClassicalMeachineLearn/Examples/LogisticRegression)|
+|  第六章   |  逻辑回归（Logistic Regression）|[Logistic Regression](./ClassicalMeachineLearn/Notes/LogisticRegression.md) |[Logistic Regression](./ClassicalMeachineLearn/Examples/LogisticRegression)|
+|  第七章   |  AdaBoost |[AdaBoost](./ClassicalMeachineLearn/Notes/AdaBoost.md) |[AdaBoost](./ClassicalMeachineLearn/Examples/AdaBoost)|
 
 ### Exercises
 #### 1，k-邻近（k-NN，k-Nearest Neighbor）
@@ -62,3 +63,5 @@
 * [logistic回归基础训练](./ClassicalMeachineLearn/Exercises/逻辑回归/logistic回归基础训练)
 * [改进随机梯度上升法](./ClassicalMeachineLearn/Exercises/逻辑回归/改进随机梯度上升法)
 * [病马死亡率预测](./ClassicalMeachineLearn/Exercises/逻辑回归/病马死亡率预测)
+
+#### 6，Adaboost
