@@ -1,10 +1,12 @@
 ## 一、集成方法（ensemble method）
+
 ### （一）集成方法含义
 > 集成方法（ensemble method）通过组合多个基分类器（base classifier）来完成学习任务，颇有点“三个臭皮匠顶个诸葛亮”的意味。
 > 基分类器一般采用的是弱可学习（weakly learnable）分类器，通过集成方法，组合成一个强可学习（strongly learnable）分类器。
 >* 弱可学习，是指学习的正确率仅略优于随机猜测的多项式学习算法；
 >* 强可学习指正确率较高的多项式学习算法。
 >* 集成学习的泛化能力一般比单一的基分类器要好，这是因为大部分基分类器都分类错误的概率远低于单一基分类器的。
+
 ### （二）集成方法分类
 > 集成方法主要包括Bagging和Boosting两种方法.
 > Bagging和Boosting都是将已有的分类或回归算法通过一定方式组合起来，形成一个性能更加强大的分类器，更准确的说这是一种分类算法的组装方法，即将弱分类器组装成强分类器的方法。
@@ -83,6 +85,7 @@ def adaBoostTrainDS(dataArr, classLabels, numIt = 40):
         if errorRate == 0.0: break                                             #误差为0，退出循环
     return weakClassArr, aggClassEst
 ~~~
+
 ### （二）Adaboost sklearn module实现
 #### 1，sklearn.ensemble.AdaBoostClassifier()的参数
 ~~~py
@@ -92,6 +95,7 @@ learning_rate=1.0,
 algorithm='SAMME.R', 
 random_state=None)
 ~~~
+
 #### 2，常用方法
 |   Functions   |   Description   |
 |:---------------:|:---------------:|
@@ -107,6 +111,7 @@ random_state=None)
 |staged_predict(X)  |Return staged predictions for X|
 |staged_predict_proba(X)  | Predict class probabilities for X|
 |staged_score(X, y[, sample_weight]) | Return staged scores for X, y|
+
 #### 2，实现代码
 ~~~py
 >>> from sklearn.ensemble import AdaBoostClassifier
