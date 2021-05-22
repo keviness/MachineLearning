@@ -65,3 +65,7 @@
 * [病马死亡率预测](./ClassicalMeachineLearn/Exercises/逻辑回归/病马死亡率预测)
 
 #### 6，Adaboost
+* [应用AdaBoost预测病马死亡率](./ClassicalMeachineLearn/Exercises/Adaboost/HorseColic)
+* [sklearn实现AdaBoost](./ClassicalMeachineLearn/Exercises/Adaboost/AdaboostSklearn)
+* [ROC曲线绘制](./ClassicalMeachineLearn/Exercises/Adaboost/ROC)
+
