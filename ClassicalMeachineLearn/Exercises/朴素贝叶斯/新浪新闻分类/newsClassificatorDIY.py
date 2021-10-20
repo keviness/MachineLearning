@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
 
 	test_accuracy_list = []
-	deleteNs = range(0, 1000, 20)				#0 20 40 60 ... 980
+	deleteNs = range(0, 1000, 20)#0 20 40 60 ... 980
 	for deleteN in deleteNs:
 		feature_words = words_dict(all_words_list, deleteN, stopwords_set)
 		train_feature_list, test_feature_list = TextFeatures(train_data_list, test_data_list, feature_words)

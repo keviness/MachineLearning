@@ -52,9 +52,6 @@ class LoadDataFromFiles(object):
         return allDataList
 
 
-
-
-
 if __name__ == "__main__":
     inputPath = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/朴素贝叶斯/新浪新闻分类/Sample/'
     postfix = 'txt'
