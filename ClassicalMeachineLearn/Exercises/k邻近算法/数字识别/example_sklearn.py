@@ -56,7 +56,7 @@ def handwritingClassTest(Path):
 		hwLabels.append(classNumber)
 		#将每一个文件的1x1024数据存储到trainingMat矩阵中
 		trainingMat[i,:] = img2vector(Path+'trainingDigits/%s' % (fileNameStr))
-        
+    
 	#构建kNN分类器
 	neigh = kNN(n_neighbors = 3, algorithm = 'auto')
 	#拟合模型, trainingMat为训练矩阵,hwLabels为对应的标签

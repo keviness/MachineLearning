@@ -27,7 +27,7 @@ def img2vector(filename):
 	#返回转换后的1x1024向量
 	return returnVect
 
-def handwritingClassTest(Path):
+def handwritingClassTest():
 	"""
 	手写数字分类测试
 	Parameters:
@@ -38,7 +38,7 @@ def handwritingClassTest(Path):
 	#测试集的Labels
 	hwLabels = []
 	#返回trainingDigits目录下的文件名
-	trainingFileList = listdir(Path + 'trainingDigits')
+	trainingFileList = listdir('trainingDigits')
 	#返回文件夹下文件的个数
 	m = len(trainingFileList)
 	#初始化训练的Mat矩阵,测试集
@@ -53,12 +53,10 @@ def handwritingClassTest(Path):
 		hwLabels.append(classNumber)
 		#将每一个文件的1x1024数据存储到trainingMat矩阵中
 		trainingMat[i,:] = img2vector('trainingDigits/%s' % (fileNameStr))
-    
 	clf = SVC(C=200,kernel='rbf')
 	clf.fit(trainingMat,hwLabels)
-def testModel(Path):
 	#返回testDigits目录下的文件列表
-	testFileList = listdir(Path +'testDigits')
+	testFileList = listdir('testDigits')
 	#错误检测计数
 	errorCount = 0.0
 	#测试数据的数量
