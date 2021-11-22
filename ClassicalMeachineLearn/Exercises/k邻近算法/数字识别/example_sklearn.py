@@ -95,5 +95,5 @@ Modify:
 	2017-07-15
 """
 if __name__ == '__main__':
-    Path = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/k邻近算法/数字识别/'
+    Path = '/Users/kevin/Desktop/program files/MeachineLearning/ClassicalMeachineLearn/Exercises/k邻近算法/数字识别/data/'
     handwritingClassTest(Path)

@@ -30,7 +30,7 @@ def colicSklearn():
 			lineArr.append(float(currLine[i]))
 		testSet.append(lineArr)
 		testLabels.append(float(currLine[-1]))
-	classifier = LogisticRegression(solver = 'sag',max_iter = 5000).fit(trainingSet, trainingLabels)
+	classifier = LogisticRegression(solver = 'sag', max_iter = 5000).fit(trainingSet, trainingLabels)
 	test_accurcy = classifier.score(testSet, testLabels) * 100
 	print('正确率:%f%%' % test_accurcy)
 
