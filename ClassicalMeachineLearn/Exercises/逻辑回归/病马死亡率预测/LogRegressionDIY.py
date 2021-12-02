@@ -11,8 +11,6 @@ Parameters:
 Returns:
 	sigmoid函数
 """
-
-
 def sigmoid(inX):
 	return 1.0 / (1 + np.exp(-inX))
 
@@ -27,8 +25,6 @@ Parameters:
 Returns:
 	weights - 求得的回归系数数组(最优参数)
 """
-
-
 def stocGradAscent1(dataMatrix, classLabels, numIter=150):
 	m, n = np.shape(dataMatrix)  # 返回dataMatrix的大小。m为行数,n为列数。
 	weights = np.ones(n)  # 参数初始化										#存储每次更新的回归系数
