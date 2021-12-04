@@ -6,7 +6,6 @@
 
 构建一个模型，根据鸢尾花的花萼和花瓣大小将其分为三种不同的品种。
 
-
 ## **数据集**
 
 总共包含150行数据
@@ -17,7 +16,6 @@
 
 目标值为三种不同类别的鸢尾花，分别为： Iris Setosa、Iris Versicolour、Iris Virginica
 
-
 **首先导入必要的包：**
 
 **numpy** ：python第三方库，用于科学计算
@@ -26,12 +24,10 @@
 
 **sklearn** :python的重要机器学习库，其中封装了大量的机器学习算法，如：分类、回归、降维以及聚类
 
-
-
 ```
-import numpy as np            
+import numpy as np          
 from matplotlib import colors   
-from sklearn import svm        
+from sklearn import svm      
 from sklearn.svm import SVC
 from sklearn import model_selection
 import matplotlib.pyplot as plt
@@ -94,7 +90,7 @@ kernel=’linear’时，为线性核
 decision_function_shape=’ovr’时，为one v rest，即一个类别与其他类别进行划分，
 
 decision_function_shape=’ovo’时，为one v one，即将类别两两之间进行划分，用二分类的方法模拟多分类的结果。
-ovr是多类情况1和ovo是多类情况2，可以在[我个人博客-线性判别函数](https://bravey.github.io/2019-12-08-%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%87%BD%E6%95%B0.html) 上查看详细说明。
+ovr是多类情况1和ovo是多类情况2。
 
 ```
 #**********************SVM分类器构建*************************
@@ -132,7 +128,6 @@ def show_accuracy(a, b, tip):
     acc = a.ravel() == b.ravel()
     print('%s Accuracy:%.3f' %(tip, np.mean(acc)))
 ```
-
 
 ```
 def print_accuracy(clf,x_train,y_train,x_test,y_test):
