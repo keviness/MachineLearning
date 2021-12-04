@@ -47,15 +47,21 @@ SVM都已经有写好的库函数，我们只需要进行调用就行了，这�
 #### (2)几个比较重要的参数
 
 `C越大说明分类的越准确，但是有可能出现过拟合；C越小，噪声点越多，泛化能力越强容易欠拟合`
-`decision_function_shape='ovr'，如果进行多分类是需要声明的，不声明默认就是ovr
-degree 多项式的维度
-gamma 就是高斯函数中的
-kernel 就是核函数默认是rbf也就是高斯函数
-max_iter 最大的迭代次数
-propobaility是否采用概率估计，默认是否
-tol 误差控制在0.001的时候就停止训练，max_iter默认是-1，就用tol来控制什么时候停止训练
-verbose允许冗余输出
-C和gamma都是典型的超参，我们可以通过列举组合法最终判定模型最优的时候超参的设置`
+`decision_function_shape='ovr'，如果进行多分类是需要声明的，不声明默认就是ovr `
+
+`degree 多项式的维度 `
+
+`gamma 就是高斯函数中的 kernel 就是核函数默认是rbf也就是高斯函数 `
+
+`max_iter 最大的迭代次数 `
+
+`propobaility是否采用概率估计，默认是否 tol 误差控制在0.001的时候就停止训练，`
+
+`max_iter默认是-1，就用tol来控制什么时候停止训练 `
+
+`verbose允许冗余输出 `
+
+`C和gamma都是典型的超参，我们可以通过列举组合法最终判定模型最优的时候超参的设置`
 
 ```python
 svm = svm.SVC()
