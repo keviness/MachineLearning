@@ -24,10 +24,10 @@
 
 **sklearn** :python的重要机器学习库，其中封装了大量的机器学习算法，如：分类、回归、降维以及聚类
 
-```
-import numpy as np          
+```python
+import numpy as np        
 from matplotlib import colors   
-from sklearn import svm      
+from sklearn import svm    
 from sklearn.svm import SVC
 from sklearn import model_selection
 import matplotlib.pyplot as plt
@@ -36,7 +36,7 @@ import matplotlib as mpl
 
 (2)对加载的数据进行数据分割，x_train,x_test,y_train,y_test分别表示训练集特征、训练集标签、测试集特征、测试集标签
 
-```
+```python
 #*************将字符串转为整型，便于数据加载***********************
 #在函数中建立一个对应字典就可以了，输入字符串，输出字符串对应的数字。
 def iris_type(s):
@@ -46,17 +46,7 @@ def iris_type(s):
     return it[s]
 ```
 
-```
-#*************将字符串转为整型，便于数据加载***********************
-#在函数中建立一个对应字典就可以了，输入字符串，输出字符串对应的数字。
-def iris_type(s):
-#     print(type(s))
-#字符串加个b是指btypes 字节串类型
-    it = {b'Iris-setosa':0, b'Iris-versicolor':1, b'Iris-virginica':2}
-    return it[s]
-```
-
-```
+```python
 #加载数据
 data_path='./iris.data'          #数据文件的路径
 data = np.loadtxt(data_path,                                #数据文件路径
