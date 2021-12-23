@@ -182,6 +182,6 @@ if __name__ == '__main__':
     testVec = [0,1]										#测试数据
     result = classify(myTree, featLabels, testVec)
     if result == 'yes':
-    	print('放贷')
+        print('放贷')
     if result == 'no':
     	print('不放贷')
