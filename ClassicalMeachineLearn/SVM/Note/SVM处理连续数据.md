@@ -117,8 +117,6 @@ y**i**(**w**⋅**x**i**−**b**)**≥**1**f**o**r**a**l**l**1**≤**i**≤**nok�
 
 则到平面的垂直距离就是我们要的间隔。
 
-![](https://ask.qcloudimg.com/http-save/yehe-7043804/36nz2yu9o3.png?imageView2/2/w/1620)
-
 这个间隔是可以通过计算出来的，推导还需要一些步骤，直接放结果了就：
 
 m**=**2**|**|**w**|**|**其中||w||表示w的二范数，求所有元素的平方和，然后在开方。比如，二维平面下：
@@ -330,8 +328,6 @@ df_data_X = scaler.fit_transform(df_data_X)
 return df_data_X, df_data_y
 ```
 
-![](https://ask.qcloudimg.com/http-save/yehe-7043804/7v1m9gybxq.png?imageView2/2/w/1620)
-
 ##### **4. 训练模型**
 
 上面已经做好了特征工程，直接塞进模型看看效果怎么样。因为并不知道数据样本到底是否线性可分，所有我们都来试一下两种算法。先来看看LinearSVC 的效果
@@ -370,7 +366,5 @@ ok，还有SVC的效果。因为SVC需要设置参数，直接通过网格搜索
     # 输出模型的最优参数
     print(grid_model.best_params_)
 ```
-
-![](https://ask.qcloudimg.com/http-save/yehe-7043804/9t37i4f05m.png?imageView2/2/w/1620)
 
 可以看出，最终模型还是选择rbf高斯核函数，果然实至名归。主要是通过数据EDA+特征工程完成了数据方面的工作，然后通过交叉验证+网格搜索确定了最优模型和最优参数。
