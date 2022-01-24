@@ -6,9 +6,7 @@
 
 ![](https://img2020.cnblogs.com/blog/1439869/202003/1439869-20200319200656864-368914133.png)
 
-那么，这个我们使用数据集的作用是什么呢？简单点来说，就是某一个用户如喜欢看![](https://juejin.im/equation?tex=(A%EF%BC%8CB%EF%BC%8CC))电影，那么他很可能也喜欢看![](https://juejin.im/equation?tex=D)电影。我们就是需要分析这个关系。
-
-万物始于加载数据集
+那么，这个我们使用数据集的作用是什么呢？简单点来说，就是某一个用户如喜欢看![img](https://juejin.im/equation?tex=(A%EF%BC%8CB%EF%BC%8CC))电影，那么他很可能也喜欢看![](https://juejin.im/equation?tex=D)电影。我们就是需要分析这个关系。
 
 ### 加载数据集
 
