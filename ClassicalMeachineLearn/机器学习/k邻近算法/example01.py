@@ -16,6 +16,7 @@ def createDataSet():
 	#四组特征的标签
 	labels = ['爱情片','爱情片','动作片','动作片']
 	return group, labels
+
 """
 函数说明:kNN算法,分类器
 Parameters:
@@ -54,7 +55,7 @@ def classify0(inX, dataSet, labels, k):
 	    voteIlabel = labels[sortedDistIndices[i]]
 	    #dict.get(key,default=None),字典的get()方法,返回指定键的值,如果值不在字典中返回默认值。
 		#计算类别次数
-        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1
+	    classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1
 	#python3中用items()替换python2中的iteritems()
 	#key=operator.itemgetter(1)根据字典的值进行排序
 	#key=operator.itemgetter(0)根据字典的键进行排序
