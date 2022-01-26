@@ -1,4 +1,4 @@
-## 数据挖掘入门系列教程（五）之Apriori算法Python实现
+## Apriori算法
 
 在上一篇[博客](https://www.cnblogs.com/xiaohuiduan/p/12508171.html)中，我们介绍了Apriori算法的算法流程，在这一片博客中，主要介绍使用Python实现Apriori算法。数据集来自[grouplens](https://grouplens.org/datasets/movielens/)中的电影数据，同样我的[GitHub](https://github.com/xiaohuiduan/data_mining/tree/master/%E7%94%B5%E5%BD%B1%E4%BA%B2%E5%92%8C%E6%80%A7%E5%88%86%E6%9E%90)上面也有这个数据集。
 
