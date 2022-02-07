@@ -61,8 +61,6 @@ def gradAscent(dataMatIn, classLabels):
 		weights = weights + alpha * dataMatrix.transpose() * error
 	return weights.getA()												#将矩阵转换为数组，并返回
 
-
-
 """
 函数说明:使用Python写的Logistic分类器做预测
 
