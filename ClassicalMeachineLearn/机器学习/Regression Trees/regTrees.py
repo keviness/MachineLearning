@@ -9,7 +9,6 @@ def loadDataSet(fileName):
 	    fileName - 文件名
 	Returns:
 		dataMat - 数据矩阵
-
 	"""
 	dataMat = []
 	fr = open(fileName)
@@ -47,7 +46,6 @@ def binSplitDataSet(dataSet, feature, value):
 	Returns:
 		mat0 - 切分的数据集合0
 		mat1 - 切分的数据集合1
-	
 	"""
 	mat0 = dataSet[np.nonzero(dataSet[:,feature] > value)[0],:]
 	mat1 = dataSet[np.nonzero(dataSet[:,feature] <= value)[0],:]
