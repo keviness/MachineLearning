@@ -23,7 +23,7 @@ def getData(inputPath):
     return trainSet, testSet, trainLabel, testLabel, feat_labels
 
 def RandomForest(trainSet, trainLabel, testSet):
-    forest = RandomForestClassifier(n_estimators=10000, random_state=0, n_jobs=-1)
+    forest = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1)
     forest.fit(trainSet, trainLabel)
     result = forest.predict(testSet)
     importance = forest.feature_importances_

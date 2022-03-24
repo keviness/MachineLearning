@@ -148,7 +148,7 @@ frequent_itemsets[1] = dict((frozenset((movie_id,)),row["like"])
 
 接下来我们就可以进行循环操作了，生成![](https://juejin.im/equation?tex=K=2,3,4%E2%80%A6%E2%80%A6)等情况。让我们定义一个方法。
 
-```
+```python
 # 步骤②③，
 from collections import defaultdict
 def find_new_frequent_items(movies_like_by_user,frequent_of_k,min_support):
