@@ -5,8 +5,6 @@ from sklearn.feature_extraction.text import TfidfTransformer
 corpus = [  
     'This;is;the;first;document.',  
     'This;is;the;second;second;document.',  
-    'And;the;third;one.',  
-    'Is;this;the;first;document?',  
 ]  
 #将文本中的词语转换为词频矩阵  
 vectorizer = CountVectorizer()  
@@ -20,12 +18,10 @@ print(X.toarray())
 
 # ----------------------------------------------------
 
-
-
 #类调用  
 transformer = TfidfTransformer()  
 #print(transformer)
 #将词频矩阵X统计成TF-IDF值  
-tfidf = transformer.fit_transform(X)  
+tfidf = transformer.fit_transform(X.toarray())  
 #查看数据结构 tfidf[i][j]表示i类文本中的tf-idf权重  
-print('tf-idf',tfidf.toarray().shape) 
+print('tf-idf:\n',tfidf.toarray()) 

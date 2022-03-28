@@ -19,7 +19,7 @@ from sklearn.metrics import euclidean_distances
 #算法详解: http://blog.csdn.net/helloeveryon/article/details/51259459
   
 if __name__=='__main__':
-#scikit中的make_blobs方法常被用来生成聚类算法的测试数据，直观地说，make_blobs会根据用户指定的特征数量、
+    #scikit中的make_blobs方法常被用来生成聚类算法的测试数据，直观地说，make_blobs会根据用户指定的特征数量、
 # 中心点数量、范围等来生成几类数据，这些数据可用于测试聚类算法的效果。
 #函数原型：
 # sklearn.datasets.make_blobs(n_samples=100, n_features=2,
@@ -58,7 +58,7 @@ if __name__=='__main__':
          plt.title(u'Preference：%.2f，簇个数：%d' % (p, n_clusters))
          clrs=[]
          for c in np.linspace(16711680, 255, n_clusters):
-             clrs.append('#%06x' % c)
+             clrs.append(c)
              for k, clr in enumerate(clrs):
                  cur = (y_hat == k)
                  plt.scatter(data[cur, 0], data[cur, 1], c=clr, edgecolors='none')
