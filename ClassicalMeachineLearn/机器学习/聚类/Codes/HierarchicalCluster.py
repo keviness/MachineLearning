@@ -1,6 +1,5 @@
 from time import time
 from sklearn.cluster import AgglomerativeClustering
-
 import numpy as np
 from scipy import ndimage
 from matplotlib import pyplot as plt

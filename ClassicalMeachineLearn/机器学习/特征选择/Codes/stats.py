@@ -1,7 +1,7 @@
 from sklearn.datasets import load_iris
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
-iris = load_iris()
+iris = load_iris(as_frame=True)
 X, y = iris.data, iris.target  #iris数据集
 
 #选择K个最好的特征，返回选择特征后的数据
@@ -12,6 +12,7 @@ skb = SelectKBest(chi2, k=3)
 X_new = skb.fit_transform(X, y)
 print('X:\n', X)
 print('X_new:\n', X_new)
+
 #调用属性scores_，获得chi2返回的得分
 print('scores_:\n', skb.scores_)
 # 调用属性pvalues_ ，获得chi2返回的P值
