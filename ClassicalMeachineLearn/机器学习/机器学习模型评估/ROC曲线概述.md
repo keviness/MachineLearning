@@ -32,7 +32,9 @@ ROC曲线示例
 FP是N个负样本中被分类器预测为正样本的个数。
 
 纵坐标为真阳性率（True Positive Rate, TPR），
-![TPR=\frac{TP}{P}](https://math.jianshu.com/math?formula=TPR%3D%5Cfrac%7BTP%7D%7BP%7D)P是真实正样本的个数，
+![TPR=\frac{TP}{P}](https://math.jianshu.com/math?formula=TPR%3D%5Cfrac%7BTP%7D%7BP%7D)
+
+P是真实正样本的个数，
 TP是P个正样本中被分类器预测为正样本的个数。
 
 举一个简单的例子方便大家的理解，还是刚才雷达的例子。假设现在有10个雷达信号警报，其中8个是真的轰炸机（P）来了，2个是大鸟（N）飞过，经过某分析员解析雷达的信号，判断出9个信号是轰炸机，剩下1个是大鸟，其中被判定为轰炸机的信号中，有1个其实是大鸟的信号（FP=1），而剩下8个确实是轰炸机信号（TP=8）。因此可以计算出FPR为![0.5](https://math.jianshu.com/math?formula=0.5)，TPR为![1](https://math.jianshu.com/math?formula=1)，而![(0.5,1)](https://math.jianshu.com/math?formula=(0.5%2C1))就对应ROC曲线上一点。
