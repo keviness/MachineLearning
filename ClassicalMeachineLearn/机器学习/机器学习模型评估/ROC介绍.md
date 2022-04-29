@@ -1,9 +1,5 @@
 # 什么是ROC曲线？为什么要使用ROC?以及 AUC的计算
 
-2020-11-13**阅读** **7.5K**0
-
-[本文被 1 个清单收录，推荐清单R语言之生存分析](https://cloud.tencent.com/developer/inventory/16225)
-
 ## 一、ROC简介
 
 > ROC的全名叫做Receiver Operating Characteristic，中文名字叫“ **受试者工作特征曲线** ”，其主要分析工具是一个画在二维平面上的曲线——ROC 曲线。平面的横坐标是false positive rate(FPR)，纵坐标是true positive rate(TPR)。对某个分类器而言，我们可以根据其在**测试样本上**的表现得到一个 **TPR和FPR点对** 。这样，此分类器就可以映射成ROC平面上的一个点。调整这个分类器分类时候使用的阈值，我们就可以得到一个经过(0, 0)，(1, 1)的曲线，这就是此分类器的ROC曲线。
