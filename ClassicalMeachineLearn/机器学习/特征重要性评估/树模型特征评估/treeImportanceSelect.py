@@ -17,7 +17,6 @@ print('X:\n',X, '\ny:\n',y)
 # Build a forest and compute the impurity-based feature importances
 forest = ExtraTreesClassifier(n_estimators=250,
                               random_state=0)
-
 forest.fit(X, y)
 importances = forest.feature_importances_
 std = np.std([tree.feature_importances_ for tree in forest.estimators_],
