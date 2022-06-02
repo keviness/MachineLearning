@@ -5,10 +5,10 @@ from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 
 shopping_list = [[1,0,1,1],
-            [1,0,0,1],
-            [1,0,1,1],
-            [1,0,0,1],
-            [1,0,1,0]]
+                [1,0,0,1],
+                [1,0,1,1],
+                [1,0,0,1],
+                [1,0,1,0]]
 # 转换成数据框
 #shopping_df = pd.DataFrame(shopping_list)
 #print('shopping_df:\n', shopping_df)
