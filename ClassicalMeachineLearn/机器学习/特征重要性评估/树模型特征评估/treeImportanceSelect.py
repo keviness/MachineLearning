@@ -14,6 +14,7 @@ X, y = make_classification(n_samples=1000,
                            random_state=0,
                            shuffle=False)
 print('X:\n',X, '\ny:\n',y)
+
 # Build a forest and compute the impurity-based feature importances
 forest = ExtraTreesClassifier(n_estimators=250,
                               random_state=0)
@@ -27,6 +28,7 @@ indices = np.argsort(importances)[::-1]
 print("Feature ranking:")
 for f in range(X.shape[1]):
     print("%d. feature %d (%f)" % (f + 1, indices[f], importances[indices[f]]))
+
 
 # Plot the impurity-based feature importances of the forest
 plt.figure()
