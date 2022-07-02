@@ -3,3 +3,5 @@ tutorials
 .DS_Store
 */.DS_Store
 data
+*.ipynb
+ml-python-master
