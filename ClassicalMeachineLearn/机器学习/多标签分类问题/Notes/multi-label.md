@@ -40,7 +40,7 @@ Scikit-learn提供了一个独立的库 **scikit-multilearn** ，用于多种标
 
 因此，为了开始使用这些数据集，请查看下面的Python代码，将其加载到你的计算机上。在这里，我已经从存储库中下载了酵母（yeast）数据集。
 
-```
+```python
 import scipy
 from scipy.io import arff
 data, meta = scipy.io.arff.loadarff('/Users/shubhamjain/Documents/yeast/yeast-train.arff')
@@ -55,7 +55,7 @@ df = pd.DataFrame(data)
 
 出于实践目的，我们有另一个选项来生成一个人工的多标签数据集。
 
-```
+```python
 from sklearn.datasets import make_multilabel_classification
 
 # this will generate a random multi-label dataset
@@ -132,7 +132,7 @@ from sklearn.metrics import accuracy_score
 accuracy_score(y_test,predictions)
 ```
 
-```
+```python
 0.45454545454545453
 ```
 
@@ -217,7 +217,7 @@ accuracy_score(y_test,predictions)
 
 改编算法来直接执行多标签分类，而不是将问题转化为不同的问题子集。例如，kNN的多标签版本是由MLkNN表示的。那么，让我们快速地在我们的随机生成的数据集上实现这个。
 
-```
+```python
 from skmultilearn.adapt import MLkNN
 
 classifier = MLkNN(k=20)

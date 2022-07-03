@@ -204,7 +204,7 @@ print(feature)
 
 处理完feature接下来我们要来处理标签数据,因为目前的标签数据的存储方式,对于我们训练分类器来说使用起来很不方便,因此我们要将标签数据转换成词袋(BOW)的格式,我们使用sklearn的MultiLabelBinarizer方法对tags进行二值化转换。
 
-```Plain%20Text
+```python
 #生成多标签的词袋矩阵
 mlb = MultiLabelBinarizer(classes=sorted(tag_dic.keys()))
 y_train = mlb.fit_transform(y_train)
