@@ -2,7 +2,6 @@ from sklearn.datasets import make_multilabel_classification
 from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import GaussianNB
 
-
 # this will generate a random multi-label dataset
 X, y = make_multilabel_classification(sparse = True, n_samples=200, n_labels=15,n_classes=10,n_features=15,return_indicator = 'sparse', allow_unlabeled = False)
 
