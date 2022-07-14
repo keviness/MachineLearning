@@ -75,7 +75,6 @@ print('accuracy:\n', accuracy)
 '''
 
 from skmultilearn.adapt import MLkNN
-
 classifier = MLkNN(k=10)
 
 # train
