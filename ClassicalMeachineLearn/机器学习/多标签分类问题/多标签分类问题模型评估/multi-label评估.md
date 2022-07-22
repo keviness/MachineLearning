@@ -47,7 +47,6 @@ print(accuracy_score(np.array([[0, 1], [1, 1]]), np.ones((2, 2)))) # 0.5
 
 ```Python
 from sklearn.metrics import zero_one_loss
-
 print(zero_one_loss(y_true,y_pred)) # 0.66666
 ```
 
@@ -176,6 +175,12 @@ print(f1_score(y_true,y_pred,average='samples')) # 0.6333
 ### Hamming Score
 
 Hamming Score为针对多标签分类场景下另一种求取准确率的方法。Hamming Score其实计算的是所有样本的平均准确率。而对于每个样本来说，准确率就是预测正确的标签数在整个预测为正确和真实为正确标签数中的占比。
+
+---
+
+---
+
+
 
 其公式为：
 
