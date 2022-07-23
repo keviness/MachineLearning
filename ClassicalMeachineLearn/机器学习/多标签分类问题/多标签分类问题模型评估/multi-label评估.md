@@ -178,10 +178,6 @@ Hamming Score为针对多标签分类场景下另一种求取准确率的方法�
 
 ---
 
----
-
-
-
 其公式为：
 
  Accuracy = 1 m ∑ i = 1 m ∣ y i ∩ y ^ i ∣ ∣ y i ∪ y ^ i ∣ \text{Accuracy} = \frac{1}{m} \sum_{i=1}^{m} \frac{\left| y_i \cap \hat{y}_i \right|}{\left| y_i \cup \hat{y}_i \right|} Accuracy=m1i=1∑m∣yi∪y^i∣∣yi∩y^i∣
