@@ -54,11 +54,13 @@ geneList = PyWGCNA.getGeneList(dataset='mmusculus_gene_ensembl',
 
 pyWGCNA_5xFAD.analyseWGCNA(geneList=geneList)
 
+
 #保存和加载您的太平洋岛屿论坛
 '''
 您可以使用 或 函数 保存或加载 PyWGCNA 对象。saveWGCNA()readWGCNA()
 '''
 pyWGCNA_5xFAD.saveWGCNA()
+
 
 '''
 您还可以使用函数加载您的 PyWGCNA 对象。readWGCNA()
