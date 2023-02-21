@@ -7,3 +7,8 @@ data
 ml-python-master
 *.png
 WGCNA教程
+*.csv
+*.txt
+*.owl
+*.docx
+*.pdf
