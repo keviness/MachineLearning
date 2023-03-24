@@ -13,6 +13,7 @@ from rdkit.Chem import ChemicalFeatures
 from rdkit.Chem.Pharm3D import Pharmacophore
 from rdkit import Chem, DataStructs, RDConfig
 from rdkit.Chem.Pharm2D import Gobbi_Pharm2D, Generate
+from rdkit.Chem.Pharm2D.SigFactory import SigFactory
 import numpy as np
 
 ExperimentDataPath = '/Users/kevin/Desktop/program files/研究生论文/寒热药性-化合物/Data Handle/Data/502experimentData.xlsx'
@@ -30,6 +31,28 @@ def getData(compFeaturePath):
     print('smilesComponentArray:\n', smilesComponentArray)
     compFeatureSelectDataFrame = compFeatureDataFrame.loc[:,'smiles':]
     return compNameArray, smilesComponentArray, compFeatureSelectDataFrame
+
+def getFp2DPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, name):
+    resultArray = []
+    for comName, smiles in zip(compNameArray, smilesComponentArray):
+        mol = Chem.MolFromSmiles(smiles)
+        FEAT = os.path.join(RDConfig.RDDataDir, "BaseFeatures.fdef")
+        featFactory = ChemicalFeatures.BuildFeatureFactory(FEAT)
+        #print('featFactory:\n', featFactory)
+        #sigFactory = SigFactory(featFactory, minPointCount=2, maxPointCount=3)
+        sigFactory = SigFactory(featFactory)
+        sigFactory.SetBins([(0,500)])
+        sigFactory.Init()
+        fp2D = Generate.Gen2DFingerprint(mol,sigFactory)
+        fp2DString = fp2D.ToBitString()
+        resultArray.append([comName, fp2DString])
+    resultArray = np.array(resultArray)
+    fingerPrinterDataFrame = pd.DataFrame(data={'name':resultArray[:,0],
+                                                'fingerPrinter':resultArray[:,1]})
+    #concateDataFrame = pd.concat([fingerPrinterDataFrame, compFeatureSelectDataFrame], axis=1)
+    fingerPrinterDataFrame.to_excel(outputPath+'ConcateDescription'+name+'Printer.xlsx', index=False)
+    print('write to excel file successfully!')
+
 
 def getGobbiFp3DPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, name):
     resultArray = []
@@ -118,4 +141,5 @@ if __name__ == '__main__':
     getTopologicalPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, 'Topological')
     getAvalonPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, 'Avalon')
     '''
-    getGobbiFp3DPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, 'GobbiFp3D')
+    #getGobbiFp3DPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, 'GobbiFp3D')
+    getFp2DPrinterInfo(compNameArray, smilesComponentArray, compFeatureSelectDataFrame, 'FP2D')
